@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrailChrome</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" role="application" aria-label="BrailChrome Controls">
+
+    <!-- Drag region for frameless window -->
+    <div id="drag-region"></div>
+
+    <!-- Control bar -->
+    <div id="control-bar" role="toolbar" aria-label="Browser toolbar">
+
+      <!-- Navigation buttons -->
+      <div id="nav-buttons" role="group" aria-label="Navigation">
+        <button id="btn-back" title="Go back (Alt+Left)" aria-label="Go back" disabled>&#8592;</button>
+        <button id="btn-forward" title="Go forward (Alt+Right)" aria-label="Go forward" disabled>&#8594;</button>
+        <button id="btn-reload" title="Reload page" aria-label="Reload">&#8635;</button>
+      </div>
+
+      <!-- URL / command bar -->
+      <div id="url-container">
+        <input
+          type="text"
+          id="url-bar"
+          placeholder="Say a command or type a URL and press Enter..."
+          aria-label="Address bar — type a URL or command"
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+
+      <!-- Voice activation button -->
+      <button
+        id="btn-voice"
+        title="Start voice command (hold Space or click)"
+        aria-label="Activate voice command"
+        class="voice-btn"
+        aria-pressed="false"
+      >&#127908;</button>
+
+      <!-- Frameless window controls -->
+      <div id="window-controls" role="group" aria-label="Window controls">
+        <button id="btn-minimize" aria-label="Minimize window" title="Minimize">&#8722;</button>
+        <button id="btn-maximize" aria-label="Maximize window" title="Maximize">&#9633;</button>
+        <button id="btn-close"    aria-label="Close window"    title="Close">&#215;</button>
+      </div>
+    </div>
+
+    <!-- Status / TTS display bar -->
+    <div id="status-bar" role="status" aria-live="polite" aria-atomic="true">
+      <span id="status-icon" aria-hidden="true">&#128266;</span>
+      <span id="status-text">Ready — hold Space to speak a command</span>
+      <span id="voice-indicator" hidden aria-live="assertive">&#127908; Listening...</span>
+      <span id="partial-text" aria-live="polite"></span>
+    </div>
+
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>

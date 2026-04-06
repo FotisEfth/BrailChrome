@@ -1,0 +1,43 @@
+{
+  "name": "brailchrome",
+  "version": "1.0.0",
+  "description": "BrailChrome - Voice-driven accessible browser for blind and visually impaired users",
+  "main": "launch.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.renderer.json && node scripts/bundle-injected.js && node scripts/copy-assets.js",
+    "build:injected": "node scripts/bundle-injected.js",
+    "start": "npm run build && node scripts/launch-electron.js",
+    "dev": "npm run build && node scripts/launch-electron.js --dev",
+    "package": "npm run build && electron-builder"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "electron": "^35.7.5",
+    "electron-builder": "^24.0.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.0"
+  },
+  "build": {
+    "appId": "com.brailchrome.browser",
+    "productName": "BrailChrome",
+    "files": [
+      "dist/**/*",
+      "launch.js"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "BrailChrome"
+    },
+    "portable": {
+      "artifactName": "BrailChrome-Portable.exe"
+    },
+    "forceCodeSigning": false
+  }
+}
