@@ -28,11 +28,17 @@ Made with ai, aiming to help blind people. Feel free to suggest changes that wou
 
 ## Quick Start
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) v18 or later
-- Windows 10/11
+### Download & Install (recommended)
 
-### Install & Run
+1. Download `BrailChrome Setup 1.0.0.exe` from the `dist/` folder
+2. Run the installer and follow the prompts
+3. Launch BrailChrome from your Start Menu or Desktop
+
+A portable version (`BrailChrome-Portable.exe`) is also available — no installation required.
+
+### Build from Source
+
+**Prerequisites:** [Node.js](https://nodejs.org/) v18 or later, Windows 10/11
 
 ```bash
 git clone https://github.com/FotisEfth/BrailChrome.git
